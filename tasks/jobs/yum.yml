@@ -1,0 +1,9 @@
+---
+
+  - name: Download Vagrant
+    get_url: url=https://releases.hashicorp.com/vagrant/{{ vagrant_version }}/vagrant_{{ vagrant_version }}_{{ vagrant_arch }}.rpm
+             dest=/usr/local/src/vagrant_{{ vagrant_version }}_{{ vagrant_arch }}.rpm
+
+  - name: Install Vagrant
+    apt: rpm=/usr/local/src/vagrant_{{ vagrant_version }}_{{ vagrant_arch }}.rpm
+    state=installed

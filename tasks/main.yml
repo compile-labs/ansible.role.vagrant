@@ -1,0 +1,10 @@
+---
+
+  - include_tasks: jobs/apt.yml
+    when: (ansible_pkg_mgr == 'apt' and ansible_distribution == "Ubuntu")
+
+  - include_tasks: jobs/yum.yml
+    when: (ansible_pkg_mgr == 'yum' and ansible_distribution == "CentOS")
+
+  - include_tasks: jobs/homebrew.yml
+    when: ansible_os_family == 'Darwin'
